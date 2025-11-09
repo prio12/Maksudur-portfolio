@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import About from './components/About';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -35,8 +37,9 @@ function App() {
         scrolled={scrolled}
         scrollToSection={scrollToSection}
       />
-      {/* <Hero scrollToSection={scrollToSection} />
+      <Hero scrollToSection={scrollToSection} />
       <About />
+      {/* <About />
       <Projects />
       <Contact />
       <Footer /> */}
