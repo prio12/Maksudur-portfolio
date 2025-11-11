@@ -26,12 +26,12 @@ const About = () => {
       .then((data) => {
         console.log(data, 'after response');
         setSkills(data);
-        setLoading(false); // stop loading when data is ready
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
         setError(err.message);
-        setLoading(false); // stop loading even if there is an error
+        setLoading(false);
       });
   }, []);
 
@@ -76,8 +76,10 @@ const About = () => {
           </span>
         </h2>
         <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
-          Full-stack developer passionate about creating efficient, scalable
-          solutions
+          I’m a Full-Stack Developer specializing in the MERN stack. I love
+          building efficient, scalable, and visually engaging web applications —
+          with a strong focus on clean code, smooth user experience, and
+          real-world performance.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -89,11 +91,11 @@ const About = () => {
             <p className="text-gray-400 mb-4">
               Based in{' '}
               <span className="text-cyan-400 font-semibold">Bangladesh</span>,
-              open to remote opportunities worldwide.
+              and open to collaborating on global, remote projects.
             </p>
             <p className="text-gray-400">
-              Available for full-time positions, contract work, and freelance
-              projects.
+              Available for full-time roles, contract-based work, or freelance
+              opportunities — wherever great ideas need solid execution.
             </p>
           </div>
 
@@ -105,15 +107,24 @@ const About = () => {
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start gap-2">
                 <span className="text-cyan-400 mt-1">•</span>
-                <span>Build complete full-stack applications from scratch</span>
+                <span>
+                  Develop end-to-end full-stack web applications using the MERN
+                  stack
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-cyan-400 mt-1">•</span>
-                <span>Design and implement RESTful APIs and databases</span>
+                <span>
+                  Design and deploy RESTful APIs with secure, scalable backend
+                  architecture
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-cyan-400 mt-1">•</span>
-                <span>Create responsive, user-friendly interfaces</span>
+                <span>
+                  Build responsive, accessible, and modern user interfaces with
+                  React and Tailwind CSS
+                </span>
               </li>
             </ul>
           </div>

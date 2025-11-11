@@ -28,9 +28,11 @@ const Hero = ({ scrollToSection }) => {
         </p>
 
         <p className="text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Specialized in MongoDB, Express.js, React, and Node.js. I transform
-          ideas into powerful, user-friendly applications with clean code and
-          modern architecture.
+          I’m a MERN Stack Developer focused on building scalable, real-time,
+          and user-centric web experiences. With expertise in React, Node.js,
+          Express, and MongoDB, I bring ideas to life through elegant UI, robust
+          backend logic, and seamless performance across every layer of the
+          stack.
         </p>
 
         {/* Social Links */}

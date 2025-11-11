@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
+import Projects from './components/Projects';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -39,6 +40,7 @@ function App() {
       />
       <Hero scrollToSection={scrollToSection} />
       <About />
+      <Projects />
       {/* <About />
       <Projects />
       <Contact />
