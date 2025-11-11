@@ -24,7 +24,6 @@ const About = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data, 'after response');
         setSkills(data);
         setLoading(false);
       })

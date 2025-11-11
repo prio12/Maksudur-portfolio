@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Code,
   Github,
@@ -13,98 +13,9 @@ import {
 const Projects = () => {
   const [expandedProject, setExpandedProject] = useState(null);
   const [githubDropdown, setGithubDropdown] = useState(null);
-
-  const projects = [
-    {
-      id: 1,
-      name: 'Chatterly',
-      tagline: 'Real-Time Messaging Platform',
-      role: 'Full-Stack Developer (Solo Project)',
-      problem:
-        'Most messaging platforms suffer from latency and poor real-time feedback, hurting user engagement.',
-      solution:
-        'Implemented a WebSocket-based chat system with typing indicators, online presence, and instant notifications.',
-      impact:
-        'Achieved sub-second message delivery and seamless synchronization across users, demonstrating mastery in real-time architecture and state management.',
-      image:
-        'https://res.cloudinary.com/dxzvyancg/image/upload/v1762858566/finalforchatterlycropped_sp67cw.png',
-      features: [
-        'Real-time messaging with Socket.io',
-        'Push notifications for new messages',
-        'Online/offline status indicators',
-        'Typing indicators and read receipts',
-        'Media sharing (images and videos)',
-        'Emoji support and reactions',
-      ],
-      keyAchievements: [
-        'Mastered WebSocket architecture including handshake protocols and bidirectional communication',
-        'Implemented scalable server-side code structure with modular design patterns',
-        'Integrated Cloudinary for optimized video/image uploads with compression',
-        'Designed intuitive UX flows based on real-world user behavior analysis',
-      ],
-      challenges: [
-        'Architected complex Socket.io event handling with proper error recovery',
-        'Optimized media upload pipeline to handle large video files efficiently',
-        'Implemented emoji picker integration while maintaining message delivery performance',
-        'Debugged real-time synchronization issues across multiple concurrent connections',
-      ],
-      tech: {
-        frontend: ['React', 'Redux Toolkit', 'Tailwind CSS'],
-        backend: ['Node.js', 'Express', 'Socket.io'],
-        database: ['MongoDB', 'Mongoose'],
-        tools: ['JWT Authentication', 'Cloudinary', 'Emoji Picker'],
-      },
-      github: {
-        frontend: 'https://github.com/prio12/Chatterly_Client',
-        backend: 'https://github.com/prio12/chatterly_server',
-      },
-      live: 'https://chatterly-ddcd5.web.app/',
-      highlight: true,
-    },
-    {
-      id: 2,
-      name: 'BlogWave',
-      tagline: 'Full-Stack Blogging Platform',
-      role: 'Full-Stack Developer (Solo Project)',
-      problem:
-        'Writers often lack a distraction-free platform with community-focused engagement.',
-      solution:
-        'Developed a minimalist full-stack blogging platform enabling rich text publishing, personalized feeds, and smooth CRUD operations.',
-      impact:
-        'Delivered an end-to-end content management system with Redux state management and responsive design, showcasing complete MERN stack proficiency.',
-      image:
-        'https://res.cloudinary.com/dxzvyancg/image/upload/v1762858458/blogwaveFInalcropped_d4ml3u.png',
-      features: [
-        'Rich text editor with formatting tools (bold, italic, lists)',
-        'Dynamic personalized content feed',
-        'Follow system and user profiles',
-        'Responsive design for all devices',
-      ],
-      keyAchievements: [
-        'Integrated rich text editor with custom formatting controls for enhanced content creation',
-        'Implemented Redux Toolkit for centralized state management across the application',
-        'Designed clean, professional UI/UX with focus on readability and user experience',
-        'Built scalable REST API with Express and MongoDB for efficient data handling',
-      ],
-      challenges: [
-        'Overcame Redux learning curve by mastering slices, thunks, and global state patterns',
-        'Refined UI design through multiple iterations to achieve a professional aesthetic',
-        'Implemented follow/unfollow and blog-like systems for the first time, enhancing user engagement',
-      ],
-      tech: {
-        frontend: ['React', 'Redux', 'Tailwind CSS'],
-        backend: ['Node.js', 'Express'],
-        database: ['MongoDB', 'Mongoose'],
-        tools: ['Rich Text Editor', 'Cloudinary'],
-      },
-      github: {
-        frontend: 'https://github.com/prio12/BlogWave',
-        backend: 'https://github.com/prio12/blog_wave_server',
-      },
-      live: 'https://blog-wave-3c534.web.app/',
-      highlight: false,
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const toggleExpand = (id) => {
     setExpandedProject(expandedProject === id ? null : id);
@@ -113,6 +24,62 @@ const Projects = () => {
   const toggleGithubDropdown = (id) => {
     setGithubDropdown(githubDropdown === id ? null : id);
   };
+
+  useEffect(() => {
+    setLoading(true); // start loading
+    fetch(
+      'https://raw.githubusercontent.com/prio12/maksudur-portfolio-data/refs/heads/main/projects.json'
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data, 'from projects');
+        setProjects(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[200px]">
+        <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!loading && error) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[150px] p-4 bg-red-50 border border-red-300 rounded-md text-red-700">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-10 w-10 mb-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 8v4m0 4h.01M12 2a10 10 0 11-0 20 10 10 0 010-20z"
+          />
+        </svg>
+        <p className="text-center text-lg font-medium">
+          Oops! Something went wrong.
+        </p>
+        {error && <p className="text-center text-sm mt-1">{error}</p>}
+      </div>
+    );
+  }
 
   return (
     <section id="projects" className="py-20 px-6 bg-slate-950">
@@ -136,7 +103,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="space-y-8">
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <div
               key={project.id}
               className={`group relative bg-slate-900/50 backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 ${
