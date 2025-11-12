@@ -11,7 +11,7 @@ const Navigation = ({ activeSection, scrolled, scrollToSection }) => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-          {'<Dev/>'}
+          {'<PrioDev/>'}
         </div>
         <div className="hidden md:flex gap-8">
           {['home', 'about', 'projects', 'contact'].map((section) => (

@@ -38,7 +38,7 @@ const Hero = ({ scrollToSection }) => {
         {/* Social Links */}
         <div className="flex gap-4 justify-center mb-12">
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:maksudurrahmanprio@gmail.com"
             className="p-3 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500 hover:scale-110 transition-all"
             aria-label="Email Contact"
           >
@@ -46,7 +46,7 @@ const Hero = ({ scrollToSection }) => {
           </a>
 
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/prio12"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500 hover:scale-110 transition-all"
@@ -56,7 +56,7 @@ const Hero = ({ scrollToSection }) => {
           </a>
 
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/maksudur-rahman-full-stack-developer/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500 hover:scale-110 transition-all"
