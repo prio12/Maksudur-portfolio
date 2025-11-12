@@ -10,9 +10,15 @@ const Navigation = ({ activeSection, scrolled, scrollToSection }) => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-          {'<PrioDev/>'}
+        {/* Logo / Brand */}
+        <div
+          onClick={() => scrollToSection('home')}
+          className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform"
+        >
+          {'<MRP/>'}
         </div>
+
+        {/* Navigation Links */}
         <div className="hidden md:flex gap-8">
           {['home', 'about', 'projects', 'contact'].map((section) => (
             <button
@@ -28,6 +34,8 @@ const Navigation = ({ activeSection, scrolled, scrollToSection }) => {
             </button>
           ))}
         </div>
+
+        {/* Hire Me Button */}
         <a
           href="#contact"
           className="px-4 py-2 bg-cyan-500 text-slate-950 rounded-lg font-semibold hover:bg-cyan-400 transition-colors"

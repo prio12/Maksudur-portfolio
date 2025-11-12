@@ -49,7 +49,7 @@ const Contact = () => {
 
           {/* LinkedIn Card */}
           <a
-            href="https://www.linkedin.com/in/maksudur-rahman-full-stack-developer/"
+            href="https://www.linkedin.com/in/mrp-dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-cyan-500 transition-colors group"

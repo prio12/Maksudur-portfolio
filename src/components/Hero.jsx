@@ -56,7 +56,7 @@ const Hero = ({ scrollToSection }) => {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/maksudur-rahman-full-stack-developer/"
+            href="https://www.linkedin.com/in/mrp-dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-slate-900 border border-slate-800 rounded-lg hover:border-cyan-500 hover:scale-110 transition-all"
